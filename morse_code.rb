@@ -43,3 +43,13 @@ MORSE_CODE_ALPHABET = {
 def decode_character(morse_character)
   MORSE_CODE_ALPHABET[morse_character]
 end
+
+def decode_word(morse_word)
+  morse_word.split.map { |morse_character| decode_character(morse_character) }.join
+end
+
+def decode_sentense(morse_sentense)
+  morse_sentense.split('   ').map { |morse_word| decode_word(morse_word) }.join(' ')
+end
+
+puts decode_sentense('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
